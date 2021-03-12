@@ -94,6 +94,9 @@
     <Compile Include="ReadingPage.xaml.cs">
       <DependentUpon>ReadingPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ReadingTestPage.xaml.cs">
+      <DependentUpon>ReadingTestPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="ImageWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -121,6 +124,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ReadingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReadingTestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

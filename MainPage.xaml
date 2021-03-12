@@ -8,6 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Main">
 
+    <!--{x:Static SystemParameters.PrymaryScreenHeight}-->
     <Grid>
         <!--Main page, opens first-->
 

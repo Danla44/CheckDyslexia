@@ -28,8 +28,8 @@ namespace CheckDyslexia
 
         public void Button_Test(object sender, RoutedEventArgs e) //At button click takes to TestPage
         {
-            ReadingPage testPage = new ReadingPage();
-            this.NavigationService.Navigate(testPage);
+            ReadingPage readingPage = new ReadingPage();
+            this.NavigationService.Navigate(readingPage);
         }
 
         public void Button_Save(object sender, RoutedEventArgs e)//Opens file dialog 
