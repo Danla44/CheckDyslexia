@@ -26,10 +26,16 @@ namespace CheckDyslexia
             InitializeComponent();
         }
 
-        public void Button_Test(object sender, RoutedEventArgs e) //At button click takes to TestPage
+        public void Button_Reading(object sender, RoutedEventArgs e) //At button click takes to TestPage
         {
             ReadingPage readingPage = new ReadingPage();
             this.NavigationService.Navigate(readingPage);
+        }
+
+        public void Button_Point(object sender, RoutedEventArgs e)
+        {
+            PointPage pointPage = new PointPage();
+            this.NavigationService.Navigate(pointPage);
         }
 
         public void Button_Save(object sender, RoutedEventArgs e)//Opens file dialog 

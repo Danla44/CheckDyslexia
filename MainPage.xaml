@@ -22,6 +22,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -39,11 +40,15 @@
             Üdvözlünk a szemmozgás követő programban. Indíthatsz új tesztet vagy választhatod egy régebbi teszt megtekintését.
         </TextBlock>
 
-        <Button Grid.Column="0" Grid.Row="2" Click="Button_Test" Style="{StaticResource buttonStyle}" Height="Auto" Margin="81,50,79.8,49.6">
-            Teszt indítása
+        <Button Grid.Column="0" Grid.Row="2" Click="Button_Reading" Style="{StaticResource buttonStyle}" Height="Auto" Margin="50,50,50,50">
+            Olvasási teszt indítása
         </Button>
 
-        <Button Grid.Column="1" Grid.Row="2" Click="Button_Save" Style="{StaticResource buttonStyle}" Height="Auto" Margin="70.2,50,69,49.6">
+        <Button Grid.Column="1" Grid.Row="2" Click="Button_Point" Style="{StaticResource buttonStyle}" Height="Auto" Margin="50,50,50,50">
+            Pont követési teszt indítása
+        </Button>
+
+        <Button Grid.Column="3" Grid.Row="2" Click="Button_Save" Style="{StaticResource buttonStyle}" Height="Auto" Margin="50,50,50,50">
             Mentett képek megtekintése
         </Button>
 
