@@ -8,9 +8,18 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ReadingTestPage">
 
-    <Grid>
-        <Grid.Background>
+    <Canvas x:Name="ReadingCanvas">
+        <Canvas.Background>
             <ImageBrush ImageSource="C:\prog\CheckDyslexia\monte.jpg" Stretch="UniformToFill"/>
-        </Grid.Background>
-    </Grid>
+        </Canvas.Background>
+
+        <Button x:Name="BStart"  Click="Button_Start_Click" Style="{StaticResource buttonStyle}" Height="Auto" Margin="25,30,330,70" Width="38" RenderTransformOrigin="0.072,0.553" >
+            Start
+        </Button>
+
+        <Button x:Name="BStop"  Click="Button_Stop_Click" Style="{StaticResource buttonStyle}" Height="Auto" Margin="0" RenderTransformOrigin="0.651,7.07" Width="50" Grid.Row="2" IsEnabled="False" Canvas.Left="221" Canvas.Top="360">
+            Stop
+        </Button>
+
+    </Canvas>
 </Page>
