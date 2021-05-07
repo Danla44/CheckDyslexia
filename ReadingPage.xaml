@@ -30,8 +30,8 @@
             <TextBlock Grid.Column="0" Grid.RowSpan="2" Style="{StaticResource textStyle}" TextWrapping="Wrap" Margin="5,5,5,0">
             - Ebben a tesztben egy olvasási feladat közben rögzítjük a szem mozgását. <LineBreak />
             - A teszt indításához kérlek add meg a neved, majd nyomd meg a teszt indítása gombot.<LineBreak />
-            - Ha készen állsz az olvasás elkezdésére, a rögzítést az enter billentyűvel tudod elindítani. <LineBreak />
-            - A feladat befejeztével a rögzítést a space billentyűvel állíthatod le.
+            - Ha készen állsz az olvasás elkezdésére, a rögzítést a Start gombbal tudod elindítani. <LineBreak />
+            - A feladat befejeztével a rögzítést a Stop gombbal állíthatod le.
             </TextBlock>
 
 

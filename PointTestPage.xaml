@@ -8,7 +8,15 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PointTestPage">
 
-    <Grid Background="Black">
-        
-    </Grid>
+    <Canvas Background="Black" x:Name="Canvas">
+
+        <Button x:Name="PBStart"  Click="PBStart_Click" Style="{StaticResource buttonStyle}" Height="Auto" Margin="28,115,335,69.8" Width="37" RenderTransformOrigin="0.072,0.553" >
+            Start
+        </Button>
+
+        <Button x:Name="PBFinish"  Click="PBFinish_Click" Style="{StaticResource buttonStyle}" Height="Auto" Margin="28,450,335,69.8" Width="37" RenderTransformOrigin="0.072,0.553"  IsEnabled="False">
+            Finish
+        </Button>
+
+    </Canvas>
 </Page>

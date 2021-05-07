@@ -70,7 +70,7 @@ namespace CheckDyslexia
                // p.X = evt.x; * SystemParameters.PrimaryScreenWidth;
                // p.Y = evt.y; * SystemParameters.PrimaryScreenHeight;
                 //coodrinates.Add(p);
-                outFile.WriteLine(evt.x * 800 + ";" + evt.y * 450);
+                outFile.WriteLine(evt.x + ";" + evt.y);
             };
         }
 
@@ -93,8 +93,8 @@ namespace CheckDyslexia
             while ((line = inFile.ReadLine()) != null)
             {
                 var extract = line.Split(';');
-                double X = Double.Parse(extract[0]);
-                double Y = Double.Parse(extract[1]);
+                double X = Double.Parse(extract[0]) * System.Windows.SystemParameters.PrimaryScreenWidth - 30;
+                double Y = Double.Parse(extract[1]) * System.Windows.SystemParameters.PrimaryScreenHeight - 30;
                 Circle(X, Y, 30, 30, ReadingCanvas);
             }
 

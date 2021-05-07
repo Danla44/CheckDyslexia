@@ -9,20 +9,20 @@ namespace CheckDyslexia
     public partial class App : Application
     {
         
-        protected StreamWriter outFile;
-        protected Tobii.InteractionLib.IInteractionLib intlib = Tobii.InteractionLib.InteractionLibFactory.CreateInteractionLib(Tobii.InteractionLib.FieldOfUse.Interactive);
-        protected Thread eventLoopThread;
+        //protected StreamWriter outFile;
+        //protected Tobii.InteractionLib.IInteractionLib intlib = Tobii.InteractionLib.InteractionLibFactory.CreateInteractionLib(Tobii.InteractionLib.FieldOfUse.Interactive);
+        //protected Thread eventLoopThread;
 
-        public void eventLoop()
+        /*public void eventLoop()
         {
             while (true)
             {
                 intlib.WaitAndUpdate();
             }
-        }
+        }*/
         protected override void OnStartup(StartupEventArgs e)
         {
-           outFile = new StreamWriter("test.txt");
+          /* outFile = new StreamWriter("test.txt");
             outFile.WriteLine("Mukszik");
             intlib.GazePointDataEvent += evt =>
             {
@@ -35,11 +35,11 @@ namespace CheckDyslexia
                 );
             };
             //Szál indítása, ami figyel a beérkező adatokra (szál azért kell, hogy miközben rögzít, ne fagyjon le a UI)
-            eventLoopThread = new Thread(new ThreadStart(eventLoop));
-            eventLoopThread.Start();
+            //eventLoopThread = new Thread(new ThreadStart(eventLoop));
+            //eventLoopThread.Start();
 
             // később megállítani:
-            //eventLoopThread.Abort();
+            //eventLoopThread.Abort();*/
 
             base.OnStartup(e);
         }
@@ -55,8 +55,8 @@ namespace CheckDyslexia
             //eventLoopThread.Abort();
 
 
-            outFile?.Close();
-            intlib?.Dispose();
+            //outFile?.Close();
+            //intlib?.Dispose();
             base.OnExit(e);
         }
     }
