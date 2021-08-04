@@ -17,7 +17,7 @@
             Start
         </Button>
 
-        <Button x:Name="BStop"  Click="Button_Stop_Click" Style="{StaticResource buttonStyle}" Height="Auto" Margin="0" RenderTransformOrigin="0.651,7.07" Width="50" Grid.Row="2" IsEnabled="False" Canvas.Left="342" Canvas.Top="484">
+        <Button x:Name="BStop"  Click="Button_Stop_Click" Style="{StaticResource buttonStyle}" Height="Auto" Margin="0" RenderTransformOrigin="0.61,5.315" Width="50" Grid.Row="2" IsEnabled="False" Canvas.Left="417" Canvas.Top="663">
             Stop
         </Button>
 

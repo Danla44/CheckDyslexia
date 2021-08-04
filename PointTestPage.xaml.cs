@@ -27,7 +27,9 @@ namespace CheckDyslexia
         protected StreamWriter outFile;
         protected StreamReader inFile;
         protected Tobii.InteractionLib.IInteractionLib intlib = Tobii.InteractionLib.InteractionLibFactory.CreateInteractionLib(Tobii.InteractionLib.FieldOfUse.Interactive);
-       
+
+        string folderpath = "C:\\prog\\CheckDyslexia\\saves";
+        string user_name { get; set; }
 
         public void EventLoop()
         {
@@ -37,11 +39,13 @@ namespace CheckDyslexia
             }
         }
 
-        public PointTestPage()
+        
+        public PointTestPage(string username)
         {
             InitializeComponent();
 
-            outFile = new StreamWriter("test.txt");
+            user_name = username;
+            outFile = new StreamWriter(System.IO.Path.Combine(folderpath, user_name + "2.txt"));
 
             // Point p = new Point(0, 0);
             //outFile.WriteLine("Moka");
@@ -108,7 +112,7 @@ namespace CheckDyslexia
             PBStart.IsEnabled = false;
             int left = 120;
             int time = 2;
-            Circle(left, 200, 70, 70, Canvas, Brushes.White, 1);
+            Circle(left, 200, 70, 70, PointCanvas, Brushes.White, 1);
             for (int i = 0; i < 9; i++)
             {
 
@@ -120,13 +124,13 @@ namespace CheckDyslexia
                 else time += 1;
                 if (i < 4)
                 {
-                    Draw(left, Canvas, time);
+                    Draw(left, PointCanvas, time);
                     left += 300;
                 }
                 else
                 {
                     left -= 300;
-                    DrawBackward(left, Canvas, time);
+                    DrawBackward(left, PointCanvas, time);
                 }
             }
             var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(time) };
@@ -143,7 +147,7 @@ namespace CheckDyslexia
 
         private void PBFinish_Click(object sender, RoutedEventArgs e)
         {
-            inFile = new StreamReader("test.txt");
+            inFile = new StreamReader(System.IO.Path.Combine(folderpath, user_name + "2.txt"));
             string line;
 
             while ((line = inFile.ReadLine()) != null)
@@ -151,12 +155,28 @@ namespace CheckDyslexia
                 var extract = line.Split(';');
                 double X = Double.Parse(extract[0]) * System.Windows.SystemParameters.PrimaryScreenWidth - 30;
                 double Y = Double.Parse(extract[1]) * System.Windows.SystemParameters.PrimaryScreenHeight - 30;
-                Circle(X, Y, 30, 30, Canvas, Brushes.Red, 0.3);
+                Circle(X, Y, 30, 30, PointCanvas, Brushes.Red, 0.3);
             }
 
-            Canvas.UpdateLayout();
+            PointCanvas.UpdateLayout();
             PBStart.IsEnabled = true;
             PBFinish.IsEnabled = false;
+
+            //Save canvas as image
+            Rect rect = new Rect(PointCanvas.RenderSize);
+            RenderTargetBitmap rtb = new RenderTargetBitmap((int)rect.Right,
+              (int)rect.Bottom, 96d, 96d, System.Windows.Media.PixelFormats.Default);
+            rtb.Render(PointCanvas);
+            //endcode as PNG
+            BitmapEncoder pngEncoder = new PngBitmapEncoder();
+            pngEncoder.Frames.Add(BitmapFrame.Create(rtb));
+
+            //save to memory stream
+            System.IO.MemoryStream ms = new System.IO.MemoryStream();
+
+            pngEncoder.Save(ms);
+            ms.Close();
+            System.IO.File.WriteAllBytes(System.IO.Path.Combine(folderpath, user_name + "2.png"), ms.ToArray());
         }
     }
 }

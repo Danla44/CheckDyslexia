@@ -39,7 +39,7 @@ namespace CheckDyslexia
             else
             {
                 username = textBox1.Text;
-                PointTestPage testPage = new PointTestPage();
+                PointTestPage testPage = new PointTestPage(username);
                 this.NavigationService.Navigate(testPage);
             }
         }

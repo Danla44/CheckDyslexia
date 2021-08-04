@@ -40,7 +40,7 @@ namespace CheckDyslexia
             else
             {
                 username = textBox1.Text;
-                ReadingTestPage testPage = new ReadingTestPage();
+                ReadingTestPage testPage = new ReadingTestPage(username);
                 this.NavigationService.Navigate(testPage);
             }
         }
