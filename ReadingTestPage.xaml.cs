@@ -58,7 +58,7 @@ namespace CheckDyslexia
                // p.X = evt.x; * SystemParameters.PrimaryScreenWidth;
                // p.Y = evt.y; * SystemParameters.PrimaryScreenHeight;
                 //coodrinates.Add(p);
-                outFile.WriteLine(evt.x + ";" + evt.y);
+                outFile.WriteLine(Convert.ToInt32(evt.x * SystemParameters.PrimaryScreenWidth - 30) + " " + Convert.ToInt32(evt.y * SystemParameters.PrimaryScreenHeight - 30));
             };
         }
 
@@ -98,9 +98,9 @@ namespace CheckDyslexia
             
             while ((line = inFile.ReadLine()) != null)
             {
-                var extract = line.Split(';');
-                double X = Double.Parse(extract[0]) * System.Windows.SystemParameters.PrimaryScreenWidth - 30;
-                double Y = Double.Parse(extract[1]) * System.Windows.SystemParameters.PrimaryScreenHeight - 30;
+                var extract = line.Split(' ');
+                double X = Double.Parse(extract[0]);
+                double Y = Double.Parse(extract[1]);
                 Circle(X, Y, 30, 30, ReadingCanvas);
             }
 
@@ -121,6 +121,8 @@ namespace CheckDyslexia
             pngEncoder.Save(ms);
             ms.Close();
             System.IO.File.WriteAllBytes(System.IO.Path.Combine(folderpath, user_name + ".png"), ms.ToArray());
+
+            inFile.Close();
         }
     }
 }
